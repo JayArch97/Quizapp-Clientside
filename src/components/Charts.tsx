@@ -51,11 +51,11 @@ const secondaryChartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--chart-1)",
+    color: "var(--chart-6)",
   },
   mobile: {
     label: "Mobile",
-    color: "var(--chart-2)",
+    color: "var(--chart-7)",
   },
 } satisfies ChartConfig;
 
@@ -88,14 +88,14 @@ const secondaryChartConfig = {
 export default function ChartAreaGradient() {
   return (
     <div className="size-full flex justify-center items-center grid-rows-2">
-      <Card className="w-80 h-24 mt-4 mr-4">
+      <Card className="w-120 h-24 mt-4 mr-4">
         <CardHeader>
           <CardTitle>Area Chart - Gradient</CardTitle>
           <CardDescription>
             Showing total visitors for the last 6 months
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="mt-4">
           <ChartContainer config={chartConfig}>
             <AreaChart
               accessibilityLayer
@@ -167,18 +167,19 @@ export default function ChartAreaGradient() {
                 <TrendingUp className="h-4 w-4" />
               </div>
               <div className="text-muted-foreground flex items-center gap-2 leading-none">
-                January - June 2024
+                January - June 2026
               </div>
             </div>
           </div>
         </CardFooter>
       </Card>
-      <Card className="w-80 h-24 mt-4">
+      <Card className="w-120 h-24 mt-4">
+        {/* Bar Chart */}
         <CardHeader>
           <CardTitle>Bar Chart Active</CardTitle>
           <CardDescription>random data for the time being</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="mt-4">
           <ChartContainer config={secondaryChartConfig}>
             <BarChart accessibilityLayer data={secondaryChartData}>
               <CartesianGrid vertical={false} />
@@ -188,7 +189,9 @@ export default function ChartAreaGradient() {
                 tickMargin={10}
                 axisLine={false}
                 tickFormatter={(value) =>
-                  chartConfig[value as keyof typeof chartConfig]?.label
+                  secondaryChartConfig[
+                    value as keyof typeof secondaryChartConfig
+                  ]?.label
                 }
               />
               <ChartTooltip
