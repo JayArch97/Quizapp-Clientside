@@ -47,14 +47,19 @@ export default function NavigationMenuDemo() {
             <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="w-96">
-                <ListItem href="/docs" title="Introduction">
-                  User friendly docs to get you started.
+                <ListItem href="/docs" title="Home Page">
+                  <Link to="/">
+                    Home page which provides a general overview the core
+                    components
+                  </Link>
                 </ListItem>
                 <ListItem
                   href="/docs/installation"
                   title="Open Sourced Side Projects"
                 >
-                  Check out some of my other projects
+                  <Link to="/side/projects">
+                    Check out some of my other projects
+                  </Link>
                 </ListItem>
               </ul>
             </NavigationMenuContent>
